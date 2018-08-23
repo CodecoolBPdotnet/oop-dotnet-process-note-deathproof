@@ -18,9 +18,10 @@
         <DataGrid Grid.Column="0" Grid.Row="0" x:Name="ProcessGrid"
                   Margin="3,3,3,3"
                   MaxHeight="400"
-                  Loaded="ProcessGrid_Loaded" MouseDown="ProcessGrid_MouseDown" MouseDoubleClick="ProcessGrid_MouseDoubleClick"
+                  MouseUp="ProcessGrid_MouseUp"  
                   ItemsSource="{Binding BaseProcesses, Mode=Default}"
-                  AutoGenerateColumns="False"> <!--I hate this line :D--> 
+                  AutoGenerateColumns="False">
+            <!--I hate this line :D-->
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Pid" Binding="{Binding Path=PID}" Width="80"></DataGridTextColumn>
@@ -28,8 +29,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Grid.Column="1" Grid.Row="0" x:Name="DetailsGrid" 
-                  Margin="3,3,3,3"
-                  MaxHeight="400"/>
+        <!--<TextBlock Grid.Column="1"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>-->
+        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
     </Grid>
 </Window>
