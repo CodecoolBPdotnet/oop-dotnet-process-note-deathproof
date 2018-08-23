@@ -31,15 +31,19 @@ namespace ProcessNote
             ProcessGrid.AutoGenerateColumns = true;
         }
 
-        private void ProcessGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ProcessGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (ProcessGrid.SelectedItem == null)
+            {
+                return;
+            }
+            var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
+            TestBox.Text = ProcessHandler.GetProcessDetails(selectedRow);
         }
 
         private void ProcessGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DetailsGrid.ItemsSource = ProcessHandler.LoadProcesses();
-            ProcessGrid.AutoGenerateColumns = true;
+
         }
     }
 }
