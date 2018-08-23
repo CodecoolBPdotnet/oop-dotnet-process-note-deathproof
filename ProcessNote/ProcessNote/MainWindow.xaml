@@ -31,5 +31,6 @@
 
         <!--<TextBlock Grid.Column="1"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>-->
         <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
+        <CheckBox x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" Grid.Row="1" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
     </Grid>
 </Window>
