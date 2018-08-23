@@ -27,7 +27,7 @@ namespace ProcessNote
             Process[] processes = Process.GetProcesses();
             var CPUcounter = new PerformanceCounter("Process", "% Processor Time", selectedProcess.Name);
             var RAMcounter = new PerformanceCounter("Process", "Working Set", selectedProcess.Name);
-            
+
 
             foreach (Process process in processes)
             {
@@ -44,7 +44,7 @@ namespace ProcessNote
             {
                 if (processes[i].Id == selectedProcess.PID)
                 {
-                result += ($"CPU usage: {Math.Round(CPUcounter.NextValue())} \nMemory usage: {Math.Round(RAMcounter.NextValue()/1024/1024)} MB\nRunning time: { (DateTime.Now - processes[i].StartTime).ToString() } \nStart time: {processes[i].StartTime.ToString()} ");
+                    result += ($"CPU usage: {Math.Round(CPUcounter.NextValue())} \nMemory usage: {Math.Round(RAMcounter.NextValue() / 1024 / 1024)} MB\nRunning time: { (TimeSpan.FromSeconds(Math.Round((DateTime.Now - processes[i].StartTime).TotalSeconds))).ToString(@"dd\:hh\:mm\:ss") } \nStart time: {processes[i].StartTime.ToString()} ");
                 }
             }
             return result;
