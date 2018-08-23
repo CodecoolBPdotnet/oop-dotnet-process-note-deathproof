@@ -31,6 +31,5 @@
         <DataGrid Grid.Column="1" Grid.Row="0" x:Name="DetailsGrid" 
                   Margin="3,3,3,3"
                   MaxHeight="400"/>
-
     </Grid>
 </Window>

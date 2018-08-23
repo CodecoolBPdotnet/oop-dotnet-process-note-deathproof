@@ -24,7 +24,6 @@ namespace ProcessNote
 
         public MainWindow()
         {
-            
             InitializeComponent();
             BaseProcesses = ProcessHandler.LoadProcesses();
             DataContext = this;
@@ -32,6 +31,7 @@ namespace ProcessNote
 
         private void ProcessGrid_Loaded(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void ProcessGrid_MouseDown(object sender, MouseButtonEventArgs e)
