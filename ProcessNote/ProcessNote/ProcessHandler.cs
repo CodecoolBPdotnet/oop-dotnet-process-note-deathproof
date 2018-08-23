@@ -24,29 +24,19 @@ namespace ProcessNote
 
         public static string GetProcessDetails(BaseProcess selectedProcess)
         {
-            Process[] processes = Process.GetProcesses();
+            Process proc = Process.GetProcessById(selectedProcess.PID);
+
             var CPUcounter = new PerformanceCounter("Process", "% Processor Time", selectedProcess.Name);
             var RAMcounter = new PerformanceCounter("Process", "Working Set", selectedProcess.Name);
 
+            CPUcounter.NextValue();
+            RAMcounter.NextValue();
 
-            foreach (Process process in processes)
-            {
-                if (process.Id == selectedProcess.PID)
-                {
-                    CPUcounter.NextValue();
-                    RAMcounter.NextValue();
-                }
-            }
+            Thread.Sleep(100);
 
-            Thread.Sleep(1000);
             string result = "";
-            for (int i = 0; i < processes.Length; i++)
-            {
-                if (processes[i].Id == selectedProcess.PID)
-                {
-                    result += ($"CPU usage: {Math.Round(CPUcounter.NextValue())} \nMemory usage: {Math.Round(RAMcounter.NextValue() / 1024 / 1024)} MB\nRunning time: { (TimeSpan.FromSeconds(Math.Round((DateTime.Now - processes[i].StartTime).TotalSeconds))).ToString(@"dd\:hh\:mm\:ss") } \nStart time: {processes[i].StartTime.ToString()} ");
-                }
-            }
+            result += ($"CPU usage: {Math.Round(CPUcounter.NextValue())} %\nMemory usage: {Math.Round(RAMcounter.NextValue() / 1024 / 1024)} MB\nRunning time: { (TimeSpan.FromSeconds(Math.Round((DateTime.Now - proc.StartTime).TotalSeconds))).ToString(@"dd\:hh\:mm\:ss") } \nStart time: {proc.StartTime.ToString()} ");
+
             return result;
         }
     }

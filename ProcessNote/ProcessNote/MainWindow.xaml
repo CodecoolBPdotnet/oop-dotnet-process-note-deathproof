@@ -20,16 +20,16 @@
                   MaxHeight="400"
                   MouseUp="ProcessGrid_MouseUp"  
                   ItemsSource="{Binding BaseProcesses, Mode=Default}"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" MouseDoubleClick="ProcessGrid_MouseDoubleClick">
             <!--I hate this line :D-->
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Pid" Binding="{Binding Path=PID}" Width="80"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Header="Pid" Binding="{Binding Path=PID}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn  IsReadOnly="True" Header="Name" Binding="{Binding Path=Name}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <!--<TextBlock Grid.Column="1"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>-->
-        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
+        <CheckBox x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" Grid.Row="1" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
     </Grid>
 </Window>
