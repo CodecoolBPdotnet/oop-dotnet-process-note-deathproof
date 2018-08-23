@@ -40,5 +40,14 @@ namespace ProcessNote
             TestBox.Text = ProcessHandler.GetProcessDetails(selectedRow);
         }
 
+        private void AlwaysOnTopCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
+
+        private void AlwaysOnTopCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
     }
 }
