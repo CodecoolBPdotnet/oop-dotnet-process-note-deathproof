@@ -49,5 +49,10 @@ namespace ProcessNote
         {
             this.Topmost = false;
         }
+        private void ProcessGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ProcessGrid_MouseUp(sender,e);
+        }
+
     }
 }
