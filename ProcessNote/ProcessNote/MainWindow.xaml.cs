@@ -20,15 +20,18 @@ namespace ProcessNote
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<BaseProcess> BaseProcesses { get; set; }
+
         public MainWindow()
         {
+            
             InitializeComponent();
+            BaseProcesses = ProcessHandler.LoadProcesses();
+            DataContext = this;
         }
 
         private void ProcessGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            ProcessGrid.ItemsSource = ProcessHandler.LoadProcesses();
-            ProcessGrid.AutoGenerateColumns = true;
         }
 
         private void ProcessGrid_MouseDown(object sender, MouseButtonEventArgs e)

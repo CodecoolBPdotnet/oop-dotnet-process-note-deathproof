@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProcessNote
 {
-    class BaseProcess
+    public class BaseProcess
     {
         public int PID { get; set; }
         public string Name { get; set; }
