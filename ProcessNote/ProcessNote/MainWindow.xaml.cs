@@ -38,8 +38,14 @@ namespace ProcessNote
 
         private void ProcessGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DetailsGrid.ItemsSource = ProcessHandler.LoadProcesses();
-            ProcessGrid.AutoGenerateColumns = true;
+            if (ProcessGrid.SelectedItem == null)
+            {
+                return;
+            }
+            var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
+            TestBox.Text = ProcessHandler.GetProcessDetails(selectedRow);
+
+
         }
     }
 }

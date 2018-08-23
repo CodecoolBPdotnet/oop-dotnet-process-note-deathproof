@@ -17,6 +17,8 @@
                   Loaded="ProcessGrid_Loaded" MouseDown="ProcessGrid_MouseDown" MouseDoubleClick="ProcessGrid_MouseDoubleClick"
                   />
         <DataGrid x:Name="DetailsGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="283" Margin="501,10,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TestBox" HorizontalAlignment="Left" Margin="363,128,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="142" Width="121"/>
 
     </Grid>
 </Window>
