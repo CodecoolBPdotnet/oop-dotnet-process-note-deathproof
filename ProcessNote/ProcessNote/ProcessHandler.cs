@@ -25,10 +25,6 @@ namespace ProcessNote
         public static string GetProcessDetails(BaseProcess selectedProcess)
         {
             Process[] processes = Process.GetProcesses();
-
-            var CPUcounters = new List<PerformanceCounter>();
-            var RAMcounters = new List<PerformanceCounter>();
-
             var CPUcounter = new PerformanceCounter("Process", "% Processor Time", selectedProcess.Name);
             var RAMcounter = new PerformanceCounter("Process", "Working Set", selectedProcess.Name);
 
@@ -36,11 +32,8 @@ namespace ProcessNote
             {
                 if (process.Id == selectedProcess.PID)
                 {
-                    
                     CPUcounter.NextValue();
                     RAMcounter.NextValue();
-                    CPUcounters.Add(CPUcounter);
-                    RAMcounters.Add(RAMcounter);
                 }
             }
 
@@ -50,7 +43,6 @@ namespace ProcessNote
             {
                 if (processes[i].Id == selectedProcess.PID)
                 {
-
                 result += ($"process: {processes[i].ProcessName} PID: {processes[i].Id} Ram usage: {Math.Round(RAMcounter.NextValue())} CPU usage: {Math.Round(CPUcounter.NextValue())}");
                 }
             }
