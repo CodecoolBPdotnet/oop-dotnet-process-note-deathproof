@@ -38,7 +38,7 @@ namespace ProcessNote
             }
             var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
             TestBox.Text = ProcessHandler.GetProcessDetails(selectedRow);
-        }
+        } 
 
         private void AlwaysOnTopCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -54,5 +54,17 @@ namespace ProcessNote
             ProcessGrid_MouseUp(sender,e);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://github.com/CodecoolBPdotnet/oop-dotnet-process-note-deathproof";
+            if (ProcessGrid.SelectedItem == null)
+            {
+                System.Diagnostics.Process.Start(url);
+                return;
+            }
+            var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
+            url = "http://www.google.com/search?q=" + selectedRow.Name + "+process";
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }
