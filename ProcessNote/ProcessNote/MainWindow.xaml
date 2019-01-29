@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions> 
             <ColumnDefinition MinWidth="400"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -29,7 +29,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="1"/>
+        <WrapPanel Grid.Column="2" x:Name="SearchWrapper" HorizontalAlignment="Center" Margin="10,0,0,-26" VerticalAlignment="Bottom" Height="150" Width="350" Grid.RowSpan="1">
+            <Button x:Name="SearchButton" Padding="5" HorizontalAlignment="Center" Content="Search" Click="Button_Click"/>
+        </WrapPanel>
         <CheckBox x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" Grid.Row="1" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
     </Grid>
 </Window>
