@@ -25,10 +25,10 @@ namespace ProcessNote
         public MainWindow()
         {
             InitializeComponent();
-            BaseProcesses = ProcessHandler.LoadProcesses();
+            ProcessHandler.LoadProcesses();
+            BaseProcesses = BaseProcess.Processses;
             DataContext = this;
         }
-
 
         private void ProcessGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
