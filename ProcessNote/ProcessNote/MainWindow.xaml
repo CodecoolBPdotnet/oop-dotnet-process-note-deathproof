@@ -28,8 +28,32 @@
                 <DataGridTextColumn  IsReadOnly="True" Header="Name" Binding="{Binding Path=Name}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <TextBlock Grid.Column="1" x:Name="TestBox" HorizontalAlignment="Left" Margin="10,0,0,-26" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center" Height="178" Width="338" Grid.RowSpan="2"/>
-        <CheckBox x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" Grid.Row="1" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
+        <CheckBox Grid.Column="0" Grid.Row="1" x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
+        <WrapPanel Grid.Column="1" Grid.Row="0" x:Name="SearchWrapper" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center">
+            <TextBlock x:Name="TestBox" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center"/>
+            <!--WrapPanel>
+                <TextBlock>CPU usage:</TextBlock>
+                <TextBlock Name="CPUUsageValue"> %</TextBlock>
+            </>
+            <WrapPanel>
+                <TextBlock>Memory usage: </TextBlock>
+                <TextBlock Name="MemoryUsageValue" > MB</TextBlock>
+            </WrapPanel-->
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0">CPU usage:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Right" Name="CPUUsageValue"  Text = "{Binding CPUUsage, Mode = OneWay}"> %</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Memory usage:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" Name="MemoryUsageValue" Text = "{Binding MemoryUsage, Mode = OneWay}" > MB</TextBlock>
+            </Grid>
+            <Button x:Name="SearchButton" Padding="7" MaxHeight="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Search" Click="Button_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>
