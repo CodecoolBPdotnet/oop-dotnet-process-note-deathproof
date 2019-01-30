@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ProcessNote
 {
     class ProcessHandler
     {
-        public static List<BaseProcess> LoadProcesses()
+        public static ObservableCollection<BaseProcess> LoadProcesses()
         {
-            List<BaseProcess> processes = new List<BaseProcess>();
+            ObservableCollection<BaseProcess> processes = new ObservableCollection<BaseProcess>();
             foreach (var item in Process.GetProcesses())
             {
                 processes.Add(new BaseProcess(item.Id, item.ProcessName));

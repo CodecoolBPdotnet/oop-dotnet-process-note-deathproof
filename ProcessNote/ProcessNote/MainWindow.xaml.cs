@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace ProcessNote
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<BaseProcess> BaseProcesses { get; set; }
+        public ObservableCollection<BaseProcess> BaseProcesses { get; set; }
 
         public MainWindow()
         {

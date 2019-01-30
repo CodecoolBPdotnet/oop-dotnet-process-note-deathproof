@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace ProcessNote
 {
     public class BaseProcess
     {
-        public static List<BaseProcess> Processses { get; set; }
+        public static ObservableCollection<BaseProcess> Processses { get; set; }
         public int PID { get; set; }
         public string Name { get; set; }
         public string CPUUsage { get; set; }
@@ -20,7 +21,7 @@ namespace ProcessNote
         {
             if (Processses == null)
             {
-                Processses = new List<BaseProcess>();
+                Processses = new ObservableCollection<BaseProcess>();
             }
             this.PID = pID;
             this.Name = name;
