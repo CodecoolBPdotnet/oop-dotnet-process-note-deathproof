@@ -42,7 +42,7 @@ namespace ProcessNote
 
             string result = "";
             result += ($"CPU usage: {Math.Round(CPUcounter.NextValue())} " +
-                $"%\nMemory usage: {Math.Round(RAMcounter.NextValue() / 1024 / 1024,2)} MB" +
+                $"%\nMemory usage: {Math.Round(RAMcounter.NextValue() / 1024 / 1024, 2)} MB" +
                 //$"\nData sent: {dataSentCounter.NextValue()}" +
                 //$"\nData received: {dataReceivedCounter.NextValue()}" +
                 $"\nRunning time: { (TimeSpan.FromSeconds(Math.Round((DateTime.Now - proc.originalProcess.StartTime).TotalSeconds))).ToString(@"dd\:hh\:mm\:ss") } " +
