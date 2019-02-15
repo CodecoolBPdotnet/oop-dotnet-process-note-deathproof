@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +10,23 @@ namespace ProcessNote
 {
     public class BaseProcess
     {
-        public static List<BaseProcess> Processses { get; set; }
+        public static ObservableCollection<BaseProcess> Processses { get; set; }
+        public Process originalProcess { get; set; }
         public int PID { get; set; }
         public string Name { get; set; }
         public string CPUUsage { get; set; }
         public string MemoryUsage { get; set; }
         public string RunningTime { get; set; }
-        public DateTime StartTime { get; set; }
 
         public BaseProcess(int pID, string name)
         {
             if (Processses == null)
             {
-                Processses = new List<BaseProcess>();
+                Processses = new ObservableCollection<BaseProcess>();
             }
             this.PID = pID;
             this.Name = name;
+            this.originalProcess = Process.GetProcessById(pID);
         }
 
         public static BaseProcess GetBaseProcessByPID(int PID )

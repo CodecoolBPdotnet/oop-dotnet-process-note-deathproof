@@ -4,9 +4,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="ProcessNote" Height="500" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions> 
+        <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="400"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -31,15 +31,30 @@
         <CheckBox Grid.Column="0" Grid.Row="1" x:Name="AlwaysOnTopCheckBox" Content="Always On Top" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="102" Checked="AlwaysOnTopCheckBox_Checked" Unchecked="AlwaysOnTopCheckBox_Unchecked" Margin="3,10,3,3"/>
         <WrapPanel Grid.Column="1" Grid.Row="0" x:Name="SearchWrapper" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center">
             <TextBlock x:Name="TestBox" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="Process details will show up here." VerticalAlignment="Center"/>
-            <WrapPanel>
+            <!--WrapPanel>
                 <TextBlock>CPU usage:</TextBlock>
                 <TextBlock Name="CPUUsageValue"> %</TextBlock>
-            </WrapPanel>
+            </>
             <WrapPanel>
                 <TextBlock>Memory usage: </TextBlock>
                 <TextBlock Name="MemoryUsageValue" > MB</TextBlock>
-            </WrapPanel>
-            <Button x:Name="SearchButton" Padding="7" MaxHeight="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Search" Click="Button_Click"/>
+            </WrapPanel-->
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0">CPU usage:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Right" Name="CPUUsageValue"  Text = "{Binding CPUUsage, Mode = OneWay}"> %</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Memory usage:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" Name="MemoryUsageValue" Text = "{Binding MemoryUsage, Mode = OneWay}" > MB</TextBlock>
+            </Grid>
+            <Button x:Name="SearchButton" Padding="7" Margin="5" MaxHeight="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Search" Click="Button_Click"/>
+            <Button x:Name="CloseButton" Padding="7" Margin="5" MaxHeight="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Close" Click="CloseButton_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

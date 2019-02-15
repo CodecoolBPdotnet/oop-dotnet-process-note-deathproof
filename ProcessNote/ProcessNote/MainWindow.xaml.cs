@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +22,7 @@ namespace ProcessNote
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<BaseProcess> BaseProcesses { get; set; }
+        public ObservableCollection<BaseProcess> BaseProcesses { get; set; }
 
         public MainWindow()
         {
@@ -65,6 +67,16 @@ namespace ProcessNote
             var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
             url = "http://www.google.com/search?q=" + selectedRow.Name + "+process";
             System.Diagnostics.Process.Start(url);
+        }
+
+        private void CloseButton_Click( object sender, RoutedEventArgs e )
+        {
+            var selectedRow = ProcessGrid.SelectedItem as BaseProcess;
+            if (selectedRow != null)
+            {
+                //Process.GetProcessById(selectedRow.PID).CloseMainWindow();
+                Process.GetProcessById(selectedRow.PID).Kill();
+            }
         }
     }
 }
